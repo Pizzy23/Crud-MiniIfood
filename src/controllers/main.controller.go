@@ -1,10 +1,10 @@
 package controllers
 
 import (
+	"icomida/docs"
+
 	"github.com/gin-gonic/gin"
-
-	swaggerFiles "github.com/swaggo/files"
-
+	swaggerfiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
@@ -13,18 +13,25 @@ import (
 // @description API para gerenciar informações de alimentos
 // @termsOfService http://swagger.io/terms/
 // @host localhost:8080
-// @BasePath /api/v1
+// @BasePath /api
 func SetupRouter() *gin.Engine {
 	r := gin.Default()
+	docs.SwaggerInfo.BasePath = "/api"
+	v1 := r.Group("/api")
+	{
+		v1.GET("/food", FindFood)
+		v1.POST("/food", CreateFood)
 
-	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+		v1.GET("/all-restaurant", FindAllRestaurants)
+		v1.GET("/restaurant", FindRestaurants)
+		v1.POST("/restaurant", CreateRestaurants)
 
-	r.GET("/food", FindFood)
-	r.POST("/food", CreateFood)
-
-	r.GET("/all-restaurant", FindAllRestaurants)
-	r.GET("/restaurant", FindRestaurants)
-	r.POST("/restaurant", CreateRestaurants)
+		v1.GET("/all-order", getAllOrders)
+		v1.GET("/find-order", getOneOrders)
+		v1.POST("/create-order", createOrder)
+		v1.PUT("/status-order", changeStatusOrder)
+	}
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 
 	return r
 }

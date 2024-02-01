@@ -7,11 +7,11 @@ import (
 )
 
 // @Summary Buscar um restaurante
-// @Description Encontra alimentos com base nos parâmetros de pesquisa
+// @Tags Restaurant
+// @Description Encontra um restaurante
 // @Accept json
 // @Produce json
-// @Param name query string true "Nome do alimento"
-// @Param description query string false "Descrição do alimento"
+// @Param name query string true "Nome do Restaurante"
 // @Success 200 {string} json "{"message": "Result"}"
 // @Router /api/v1/find-restaurant [get]
 func FindRestaurants(c *gin.Context) {
@@ -24,12 +24,13 @@ func FindRestaurants(c *gin.Context) {
 }
 
 // @Summary Criar novo restaurante
+// @Tags Restaurant
 // @Description Criação de novos restaurantes
 // @Accept json
 // @Produce json
-// @Param name query string true "Nome de restaurante"
+// @Param name query string true "Nome do Restaurante"
 // @Success 200 {string} json "{"message": "Restaurante criado"}"
-// @Router /api/v1/find-restaurant [get]
+// @Router /api/v1/create-restaurant [post]
 func CreateRestaurants(c *gin.Context) {
 	name := c.GetHeader("Name")
 	score := 0
@@ -42,11 +43,10 @@ func CreateRestaurants(c *gin.Context) {
 }
 
 // @Summary Buscar todos restaurante
-// @Description Encontra alimentos com base nos parâmetros de pesquisa
+// @Tags Restaurant
+// @Description Encontra todos os restaurantes
 // @Accept json
 // @Produce json
-// @Param name query string true "Nome do alimento"
-// @Param description query string false "Descrição do alimento"
 // @Success 200 {string} json "{"message": "result"}"
 // @Router /api/v1/all-restaurant [get]
 func FindAllRestaurants(c *gin.Context) {

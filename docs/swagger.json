@@ -1,0 +1,308 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/api/v1/all-order": {
+            "get": {
+                "description": "Obtém todas as ordens com base nos parâmetros de pesquisa",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Obter todas as ordens",
+                "responses": {
+                    "200": {
+                        "description": "{\"message\": \"Result\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/all-restaurant": {
+            "get": {
+                "description": "Encontra todos os restaurantes",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": "Buscar todos restaurante",
+                "responses": {
+                    "200": {
+                        "description": "{\"message\": \"result\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/create-order": {
+            "post": {
+                "description": "Cria uma nova ordem com base nos parâmetros fornecidos",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Criar uma nova ordem",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Id do restaurante que criou a ordem de pedido pro usuario",
+                        "name": "RestaurantID",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "array",
+                        "description": "Comidas/Pedido",
+                        "name": "Items",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"message\": \"Result\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/create-restaurant": {
+            "post": {
+                "description": "Criação de novos restaurantes",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": "Criar novo restaurante",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Nome do Restaurante",
+                        "name": "name",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"message\": \"Restaurante criado\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/find-order": {
+            "get": {
+                "description": "Obtém uma ordem com base nos parâmetros de pesquisa",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Obter uma ordem",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Numero do pedido",
+                        "name": "orderNumber",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"message\": \"Result\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/find-restaurant": {
+            "get": {
+                "description": "Encontra um restaurante",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": "Buscar um restaurante",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Nome do Restaurante",
+                        "name": "name",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"message\": \"Result\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/food": {
+            "get": {
+                "description": "Encontra alimentos com base nos parâmetros de pesquisa",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Food"
+                ],
+                "summary": "Encontrar alimentos",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Nome do alimento",
+                        "name": "name",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Descrição do alimento",
+                        "name": "description",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"message\": \"Alimentos encontrados\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Criar novos alimentos :)",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Food"
+                ],
+                "summary": "Criar alimentos",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Nome do alimento",
+                        "name": "name",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Descrição do alimento",
+                        "name": "description",
+                        "in": "query"
+                    },
+                    {
+                        "type": "number",
+                        "description": "Valor do Produto",
+                        "name": "price",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"message\": \"Registro adicionado com sucesso\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/status-order": {
+            "put": {
+                "description": "Altera o status de uma ordem com base nos parâmetros fornecidos",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Alterar o status de uma ordem",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Nome do alimento",
+                        "name": "name",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Descrição do alimento",
+                        "name": "description",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"message\": \"Result\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

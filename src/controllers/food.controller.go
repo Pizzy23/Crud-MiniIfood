@@ -7,6 +7,7 @@ import (
 )
 
 // @Summary Encontrar alimentos
+// @Tags Food
 // @Description Encontra alimentos com base nos parâmetros de pesquisa
 // @Accept json
 // @Produce json
@@ -24,20 +25,26 @@ func FindFood(c *gin.Context) {
 }
 
 // @Summary Criar alimentos
+// @Tags Food
 // @Description Criar novos alimentos :)
 // @Accept json
 // @Produce json
 // @Param name query string true "Nome do alimento"
 // @Param description query string false "Descrição do alimento"
+// @Param price query number true "Valor do Produto"
 // @Success 200 {string} json "{"message": "Registro adicionado com sucesso"}"
 // @Router /api/v1/food [post]
 func CreateFood(c *gin.Context) {
 	name := c.GetHeader("Name")
 	description := c.GetHeader("Description")
+	price := c.GetHeader("Price")
+	restaurant := c.GetHeader("Restaurant")
 
 	filters := map[string]interface{}{
 		"name":        name,
 		"description": description,
+		"price":       price,
+		"restaurant":  restaurant,
 	}
 	service.CreateFood(c, filters)
 }
