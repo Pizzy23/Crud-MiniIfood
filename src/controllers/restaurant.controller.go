@@ -15,7 +15,7 @@ import (
 // @Success 200 {string} json "{"message": "Result"}"
 // @Router /api/v1/find-restaurant [get]
 func FindRestaurants(c *gin.Context) {
-	name := c.GetHeader("name")
+	name := c.Query("name")
 
 	filters := map[string]interface{}{
 		"name": name,
@@ -32,7 +32,7 @@ func FindRestaurants(c *gin.Context) {
 // @Success 200 {string} json "{"message": "Restaurante criado"}"
 // @Router /api/v1/create-restaurant [post]
 func CreateRestaurants(c *gin.Context) {
-	name := c.GetHeader("Name")
+	name := c.Query("Name")
 	score := 0
 
 	filters := map[string]interface{}{

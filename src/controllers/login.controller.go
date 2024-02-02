@@ -1,6 +1,8 @@
 package controllers
 
 import (
+	"icomida/src/service"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -13,7 +15,8 @@ import (
 // @Success 200 {string} json "{"message": "Result"}"
 // @Router /api/login [put]
 func connectUser(c *gin.Context) {
-
+	email := c.Query("email")
+	service.ConnectByEmail(c, email)
 }
 
 // @Summary Desconectar o usuario

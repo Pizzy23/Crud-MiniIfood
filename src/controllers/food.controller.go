@@ -16,7 +16,7 @@ import (
 // @Success 200 {string} json "{"message": "Alimentos encontrados"}"
 // @Router /api/v1/food [get]
 func FindFood(c *gin.Context) {
-	name := c.GetHeader("name")
+	name := c.Query("name")
 
 	filters := map[string]interface{}{
 		"name": name,
@@ -35,10 +35,10 @@ func FindFood(c *gin.Context) {
 // @Success 200 {string} json "{"message": "Registro adicionado com sucesso"}"
 // @Router /api/v1/food [post]
 func CreateFood(c *gin.Context) {
-	name := c.GetHeader("Name")
-	description := c.GetHeader("Description")
-	price := c.GetHeader("Price")
-	restaurant := c.GetHeader("Restaurant")
+	name := c.Query("Name")
+	description := c.Query("Description")
+	price := c.Query("Price")
+	restaurant := c.Query("Restaurant")
 
 	filters := map[string]interface{}{
 		"name":        name,
