@@ -30,6 +30,15 @@ func SetupRouter() *gin.Engine {
 		v1.GET("/find-order", getOneOrders)
 		v1.POST("/create-order", createOrder)
 		v1.PUT("/status-order", changeStatusOrder)
+
+		v1.PUT("/login", connectUser)
+		v1.PUT("/logged", disconnectUser)
+
+		v1.POST("/create-user", createUser)
+		v1.PUT("/edit-email", editEmail)
+		v1.PUT("/edit-name", editName)
+		v1.PUT("/edit-adress", editAdress)
+		v1.GET("/get-user", getUser)
 	}
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 

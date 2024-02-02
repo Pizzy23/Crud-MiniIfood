@@ -15,6 +15,241 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/api/create-user": {
+            "post": {
+                "description": "Criar um usuario a partir das novas infos",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Criar um novo usuario",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Email do usuario",
+                        "name": "Email",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Nome do usuario",
+                        "name": "Name",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Endereço do usuario",
+                        "name": "Adress",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"message\": \"Result\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/edit-adress": {
+            "put": {
+                "description": "Editar um usuario a partir das novas infos",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Editar usuario (Adress)",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Adress para editar as novas info",
+                        "name": "Adress",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"message\": \"Result\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/edit-email": {
+            "put": {
+                "description": "Editar um usuario a partir das novas infos",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Editar usuario (Email)",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Email para editar as novas info",
+                        "name": "Email",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"message\": \"Result\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/edit-name": {
+            "put": {
+                "description": "Editar um usuario a partir das novas infos",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Editar usuario (Name)",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Name para editar as novas info",
+                        "name": "Name",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"message\": \"Result\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get-user": {
+            "get": {
+                "description": "Buscar um usuario dentro da db",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Pegar um usuario",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Email para pegar um usuario especifico",
+                        "name": "Email",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"message\": \"Result\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/loggout": {
+            "put": {
+                "description": "Altera o modo de login para false",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Login"
+                ],
+                "summary": "Desconectar o usuario",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Email para pegar o atributo do login",
+                        "name": "Email",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"message\": \"Result\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "put": {
+                "description": "Altera o modo de login para true",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Login"
+                ],
+                "summary": "Conectar o usuario",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Email para pegar o atributo do login",
+                        "name": "Email",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"message\": \"Result\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/all-order": {
             "get": {
                 "description": "Obtém todas as ordens com base nos parâmetros de pesquisa",

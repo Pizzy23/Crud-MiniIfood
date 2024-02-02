@@ -4,6 +4,24 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func IsLoggin(c *gin.Context) {
+// @Summary Conectar o usuario
+// @Tags Login
+// @Description Altera o modo de login para true
+// @Accept json
+// @Produce json
+// @Param Email query string true "Email para pegar o atributo do login"
+// @Success 200 {string} json "{"message": "Result"}"
+// @Router /api/login [put]
+func connectUser(c *gin.Context) {
 
 }
+
+// @Summary Desconectar o usuario
+// @Tags Login
+// @Description Altera o modo de login para false
+// @Accept json
+// @Produce json
+// @Param Email query string true "Email para pegar o atributo do login"
+// @Success 200 {string} json "{"message": "Result"}"
+// @Router /api/loggout [put]
+func disconnectUser(c *gin.Context) {}

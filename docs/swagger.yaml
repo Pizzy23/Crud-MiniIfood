@@ -1,6 +1,160 @@
 info:
   contact: {}
 paths:
+  /api/create-user:
+    post:
+      consumes:
+      - application/json
+      description: Criar um usuario a partir das novas infos
+      parameters:
+      - description: Email do usuario
+        in: query
+        name: Email
+        required: true
+        type: string
+      - description: Nome do usuario
+        in: query
+        name: Name
+        required: true
+        type: string
+      - description: Endereço do usuario
+        in: query
+        name: Adress
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"message": "Result"}'
+          schema:
+            type: string
+      summary: Criar um novo usuario
+      tags:
+      - User
+  /api/edit-adress:
+    put:
+      consumes:
+      - application/json
+      description: Editar um usuario a partir das novas infos
+      parameters:
+      - description: Adress para editar as novas info
+        in: query
+        name: Adress
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"message": "Result"}'
+          schema:
+            type: string
+      summary: Editar usuario (Adress)
+      tags:
+      - User
+  /api/edit-email:
+    put:
+      consumes:
+      - application/json
+      description: Editar um usuario a partir das novas infos
+      parameters:
+      - description: Email para editar as novas info
+        in: query
+        name: Email
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"message": "Result"}'
+          schema:
+            type: string
+      summary: Editar usuario (Email)
+      tags:
+      - User
+  /api/edit-name:
+    put:
+      consumes:
+      - application/json
+      description: Editar um usuario a partir das novas infos
+      parameters:
+      - description: Name para editar as novas info
+        in: query
+        name: Name
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"message": "Result"}'
+          schema:
+            type: string
+      summary: Editar usuario (Name)
+      tags:
+      - User
+  /api/get-user:
+    get:
+      consumes:
+      - application/json
+      description: Buscar um usuario dentro da db
+      parameters:
+      - description: Email para pegar um usuario especifico
+        in: query
+        name: Email
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"message": "Result"}'
+          schema:
+            type: string
+      summary: Pegar um usuario
+      tags:
+      - User
+  /api/loggout:
+    put:
+      consumes:
+      - application/json
+      description: Altera o modo de login para false
+      parameters:
+      - description: Email para pegar o atributo do login
+        in: query
+        name: Email
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"message": "Result"}'
+          schema:
+            type: string
+      summary: Desconectar o usuario
+      tags:
+      - Login
+  /api/login:
+    put:
+      consumes:
+      - application/json
+      description: Altera o modo de login para true
+      parameters:
+      - description: Email para pegar o atributo do login
+        in: query
+        name: Email
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"message": "Result"}'
+          schema:
+            type: string
+      summary: Conectar o usuario
+      tags:
+      - Login
   /api/v1/all-order:
     get:
       consumes:
