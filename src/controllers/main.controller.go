@@ -38,6 +38,7 @@ func SetupRouter() *gin.Engine {
 		v1.PUT("/edit-email", editEmail)
 		v1.PUT("/edit-name", editName)
 		v1.PUT("/edit-adress", editAdress)
+		v1.PUT("/edit-password", editPassword)
 		v1.GET("/get-user", getUser)
 	}
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))

@@ -38,9 +38,13 @@ paths:
       - application/json
       description: Editar um usuario a partir das novas infos
       parameters:
-      - description: Adress para editar as novas info
+      - description: Password para editar as novas info
         in: query
-        name: Adress
+        name: Password
+        type: string
+      - description: Email para editar as novas info
+        in: query
+        name: Email
         type: string
       produces:
       - application/json
@@ -49,7 +53,7 @@ paths:
           description: '{"message": "Result"}'
           schema:
             type: string
-      summary: Editar usuario (Adress)
+      summary: Editar usuario (Password)
       tags:
       - User
   /api/edit-email:
@@ -81,6 +85,10 @@ paths:
       - description: Name para editar as novas info
         in: query
         name: Name
+        type: string
+      - description: Email para editar as novas info
+        in: query
+        name: Email
         type: string
       produces:
       - application/json

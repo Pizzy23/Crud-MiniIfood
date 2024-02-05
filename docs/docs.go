@@ -73,12 +73,18 @@ const docTemplate = `{
                 "tags": [
                     "User"
                 ],
-                "summary": "Editar usuario (Adress)",
+                "summary": "Editar usuario (Password)",
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "Adress para editar as novas info",
-                        "name": "Adress",
+                        "description": "Password para editar as novas info",
+                        "name": "Password",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Email para editar as novas info",
+                        "name": "Email",
                         "in": "query"
                     }
                 ],
@@ -141,6 +147,12 @@ const docTemplate = `{
                         "type": "string",
                         "description": "Name para editar as novas info",
                         "name": "Name",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Email para editar as novas info",
+                        "name": "Email",
                         "in": "query"
                     }
                 ],

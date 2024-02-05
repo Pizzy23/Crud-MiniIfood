@@ -1,13 +1,15 @@
 package service
 
 import (
+	"icomida/src/models"
+	"icomida/src/repository"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
 
 func GetOrder(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{"message": "WIP"})
+	repository.FindOrder(models.DB)
 }
 
 func GetAllOrder(c *gin.Context) {

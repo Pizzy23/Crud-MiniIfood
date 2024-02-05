@@ -27,4 +27,7 @@ func connectUser(c *gin.Context) {
 // @Param Email query string true "Email para pegar o atributo do login"
 // @Success 200 {string} json "{"message": "Result"}"
 // @Router /api/loggout [put]
-func disconnectUser(c *gin.Context) {}
+func disconnectUser(c *gin.Context) {
+	email := c.Query("email")
+	service.DisconnectUser(c, email)
+}
